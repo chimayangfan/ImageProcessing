@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Threading;
 
 namespace ImageProcessing
 {
@@ -18,6 +19,7 @@ namespace ImageProcessing
     public delegate void SimulationDelegate();
     public partial class SimulationForm : DevExpress.XtraEditors.XtraForm
     {
+        Program.Infomation Result = new Program.Infomation();
         /// <summary>
         /// 仿真测试界面初始化
         /// </summary>
@@ -89,8 +91,7 @@ namespace ImageProcessing
             //}
             if (this.PathBox.Text != string.Empty)
             {
-                Program.Parameter value = new Program.Parameter();
-                Program.Infomation Result = new Program.Infomation();
+                Program.Parameter value = new Program.Parameter();               
                 //判断参数是否全部设置
                 if (this.ImgThresholdBox.Text == string.Empty)
                 {
@@ -190,12 +191,16 @@ namespace ImageProcessing
                         //Program.Memory_application();//申请本幅图的内存
                         //Form1.MemoryFlag = true;
                         //bool back = Program.SimulationImageTest(Form1.ImagePath, ref Result);
-                        Program.SimulationTestSynchronize(Form1.ImagePath, ref Result);
-                        Form1.GPUDevices = Result.DeviceCount;
-                        Form1.CPUThreads = Result.CPUThreadCount;
-                        Result.PointNumbers = 14825;
-                        Result.ImgProcessingNumbers = 50;
-                        Result.DeviceCount = 3;
+                        closeThread();
+                        SimulationThread = new Thread(new ThreadStart(ChooseExperiment));
+                        SimulationThread.IsBackground = true;
+                        SimulationThread.Start();
+                        //Program.SimulationTestSynchronize(Form1.ImagePath, ref Result);
+                        //Form1.GPUDevices = Result.DeviceCount;
+                        //Form1.CPUThreads = Result.CPUThreadCount;
+                        //Result.PointNumbers = 14825;
+                        //Result.ImgProcessingNumbers = 50;
+                        //Result.DeviceCount = 3;
                         //触发事件
                         ConformEvent();
                     }
@@ -214,6 +219,50 @@ namespace ImageProcessing
             {
                 DevExpress.XtraEditors.XtraMessageBox.Show("请先导入测试图像！");
             }
+        }
+
+        ///<summary>
+        ///模块编号：子线程执行模块
+        ///作用：用于在线实验过程调用DLL实验函数，防止主线程堵塞
+        ///作者：
+        ///编写日期：
+        ///</summary>
+        Thread SimulationThread = null;
+        //delegate void ExperimentDelegate(int i);
+
+        //Experiment子线程，调用test函数
+        private void ChooseExperiment()
+        {
+            try
+            {
+                SimulationTest();
+            }
+            catch (System.Exception e1)
+            {
+                return;
+            }
+            closeThread();
+        }
+
+        //结束子线程  
+        private void closeThread()
+        {
+            if (SimulationThread != null)
+            {
+                if (SimulationThread.IsAlive)
+                {
+                    SimulationThread.Abort();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 子线程实际执行函数
+        /// </summary> 
+        private void SimulationTest()
+        {
+            Program.SimulationTestSynchronize(Form1.ImagePath, ref Result);
+            ListViewDisplay(Result);
         }
 
         /// <summary>
@@ -285,6 +334,7 @@ namespace ImageProcessing
         /// </summary>
         private void cancelbutton_Click(object sender, EventArgs e)
         {
+            closeThread(); //停止子线程
             this.Close(); //----关闭窗体
         }
 
