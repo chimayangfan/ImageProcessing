@@ -64,7 +64,7 @@
             this.MarkDrawGroup1.Controls.Add(this.MarkColorlab);
             this.MarkDrawGroup1.Location = new System.Drawing.Point(14, 14);
             this.MarkDrawGroup1.Name = "MarkDrawGroup1";
-            this.MarkDrawGroup1.Size = new System.Drawing.Size(210, 140);
+            this.MarkDrawGroup1.Size = new System.Drawing.Size(202, 140);
             this.MarkDrawGroup1.TabIndex = 0;
             this.MarkDrawGroup1.TabStop = false;
             this.MarkDrawGroup1.Text = "轮廓点中心";
@@ -76,7 +76,7 @@
             0,
             0,
             0});
-            this.MarkLinewidthEdit.Location = new System.Drawing.Point(90, 102);
+            this.MarkLinewidthEdit.Location = new System.Drawing.Point(80, 101);
             this.MarkLinewidthEdit.Name = "MarkLinewidthEdit";
             this.MarkLinewidthEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -107,7 +107,7 @@
             0,
             0,
             0});
-            this.MarkLengthEdit.Location = new System.Drawing.Point(90, 67);
+            this.MarkLengthEdit.Location = new System.Drawing.Point(80, 67);
             this.MarkLengthEdit.Name = "MarkLengthEdit";
             this.MarkLengthEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -134,7 +134,7 @@
             // MarkColorEdit
             // 
             this.MarkColorEdit.EditValue = System.Drawing.Color.Red;
-            this.MarkColorEdit.Location = new System.Drawing.Point(90, 32);
+            this.MarkColorEdit.Location = new System.Drawing.Point(80, 32);
             this.MarkColorEdit.Name = "MarkColorEdit";
             this.MarkColorEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});

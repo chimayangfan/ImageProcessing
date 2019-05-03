@@ -137,6 +137,12 @@
     <Compile Include="SimulationParForm.Designer.cs">
       <DependentUpon>SimulationParForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Unzip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Unzip.Designer.cs">
+      <DependentUpon>Unzip.cs</DependentUpon>
+    </Compile>
     <Compile Include="XtraReport.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -171,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SimulationParForm.resx">
       <DependentUpon>SimulationParForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Unzip.resx">
+      <DependentUpon>Unzip.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="XtraReport.resx">
       <DependentUpon>XtraReport.cs</DependentUpon>

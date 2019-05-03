@@ -135,6 +135,12 @@ namespace ImageProcessing
         public static extern void GetParameter(ref Parameter info);
         [DllImport("Imgsimulation")]
         public static extern void UnzipPictureFiles(string Filepath);
+        [DllImport("Imgsimulation")]
+        public static extern void UnzipOneBin(string Filepath, string BinPath);
+        [DllImport("Imgsimulation")]
+        public static extern void UnzipMultiFeatureBins(string Filepath, int arrsize, int[] BinfileIndex);
+        [DllImport("Imgsimulation")]
+        public static extern void UnzipMultiImgBins(string Filepath, int arrsize, int[] BinfileIndex);
 
         /// <summary>
         /// 应用程序的主入口点。

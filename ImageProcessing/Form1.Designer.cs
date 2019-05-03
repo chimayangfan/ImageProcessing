@@ -54,8 +54,8 @@
             this.Draw = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.Operate = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.Delete = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.Delete = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.HelpPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.Help = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.repositoryItemProgressBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemProgressBar();
@@ -371,17 +371,17 @@
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "Report";
             // 
-            // Delete
-            // 
-            this.Delete.ItemLinks.Add(this.DeleteDate);
-            this.Delete.Name = "Delete";
-            this.Delete.Text = "Delete";
-            // 
             // ribbonPageGroup3
             // 
             this.ribbonPageGroup3.ItemLinks.Add(this.barSubItem1);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "Unzip";
+            // 
+            // Delete
+            // 
+            this.Delete.ItemLinks.Add(this.DeleteDate);
+            this.Delete.Name = "Delete";
+            this.Delete.Text = "Delete";
             // 
             // HelpPage
             // 

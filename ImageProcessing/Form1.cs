@@ -148,10 +148,15 @@ namespace ImageProcessing
         /// </summary>
         private void Unzip_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (DevExpress.XtraEditors.XtraMessageBox.Show("解压图像保存文件夹下所有图片?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            //if (DevExpress.XtraEditors.XtraMessageBox.Show("解压图像保存文件夹下所有图片?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            //{
+            //    Program.UnzipPictureFiles("C:\\pic\\img_write");
+            //    DevExpress.XtraEditors.XtraMessageBox.Show("图像解压完成！");
+            //}
+            Unzip UnzipForm = new Unzip();
+            if (UnzipForm.ShowDialog() == DialogResult.OK)//对话框返回值为ok时运行
             {
-                Program.UnzipPictureFiles("C:\\pic\\img_write");
-                DevExpress.XtraEditors.XtraMessageBox.Show("图像解压完成！");
+                //btnFind_Click(sender, e); //这个是当前页面的重新加载的查询事件                
             }
         }
 
